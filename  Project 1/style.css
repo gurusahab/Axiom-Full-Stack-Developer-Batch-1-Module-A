@@ -27,23 +27,23 @@ body
         text-align: center;
         margin: 0 0 2pc;
     }
-    .form{
+.form{
         padding: 2pc 5pc;
     }
 
-    .form-control{
+.form-control{
         margin-bottom: 0.3pc ;
         padding-bottom: 0.4pc ;
         position: relative;
     }
 
-    .form-control label{
+.form-control label{
         color: #777;
         display: block;
         margin-bottom: 00.3pc;
     }
 
-    .form-control input{
+.form-control input{
         border: 0.2pc solid #ECF0F1;
         border-radius: .5pc;
         display: block;
@@ -51,6 +51,6 @@ body
         padding: .3pc;
         font-size: .8pc;
     }
-    .form-control input:focus{
+.form-control input:focus{
         outline: 0pc;
     }
