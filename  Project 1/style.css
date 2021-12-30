@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Spline+Sans&display=swap');
-
+:root{
+    --sucess-color: green;
+    --error-color: orangered;
+}
  *{
     box-sizing: border-box;
   }
@@ -26,6 +29,7 @@ body
     {
         text-align: center;
         margin: 0 0 2pc;
+        font-family:'Times New Roman', Times, serif;
     }
 .form{
         padding: 2pc 5pc;
@@ -52,5 +56,35 @@ body
         font-size: .8pc;
     }
 .form-control input:focus{
-        outline: 0pc;
+        outline: 0;
+        border-color: burlywood;
     }
+.form-control.sucess input{
+        outline: 0;
+        border-color: var(--sucess-color);
+    }
+.form-control.error input{
+        outline: 0;
+        border-color: var(--error-color);
+    }
+.form-control small{
+    color: var(--error-color);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+.form-control.error small{
+    visibility: visible;
+}
+.form button{
+    cursor: pointer;
+    background-color: navy;
+    border-color:.2pc solid navy;
+    border-radius: .5pc;
+    color: white;
+    font-size: 1pc;
+    padding: .5pc;
+    margin-left: .3pc;
+    width: 10pc;
+}
