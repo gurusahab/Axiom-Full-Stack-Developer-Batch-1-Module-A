@@ -31,33 +31,52 @@ function isValidEmail(email)
     const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return re.test(String(email).toLowerCase());  
 }
-//Fuction to check if requred field has data
-function checkRequried(inputArray)
-{
-   inputArray.forEach(function(input){
-       if(input.value === '')
-       {
-           //showError(input, input.id + 'is requried')
-           showError(input,`${getFieldId(input)} is requried`)
-
-       }
-       else
-       {
-           showSuccess(input)
-       }
-   })
-}
-
-//Function to check to Id of required field with proper case
-function getFieldId(input)
-{
-    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-}
 //Events listner
 //Creat event listener for submit button
 form.addEventListener('submit',function(e){
     // Stop page from reloading on submit 
     e.preventDefault();
-    checkRequried([username,email,password,password2]);
+
+    //Check to see if field meet required field requriment
+    //Check if username is empty
+    if(username.value === '')
+    {
+        showError(username, 'Username is required');
+    }
+    else{
      
+        showSuccess(username)
+    }
+    //Check if email is empty
+    if(email.value === '')
+    {
+        showError(email, 'email is required');
+    }
+    else if(!isValidEmail(email.value))
+    {
+          showError(email, "Email is invalid")
+    }
+    else{
+       
+        showSuccess(email)
+    }
+    //Check if password is empty
+    if(password.value === '')
+    {
+        showError(password, 'Password is required');
+    }
+    else{
+        
+        showSuccess(password)
+    }
+    //Check if password2 is empty
+    if(password2.value === '')
+    {
+        showError(password2, 'Password2 is required');
+    }
+    else{
+       
+        showSuccess(password2)
+    }
+    
 });
