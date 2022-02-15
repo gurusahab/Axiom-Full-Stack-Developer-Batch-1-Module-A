@@ -25,6 +25,12 @@ function showSuccess(input){
     //Replace the class and add an sucess
     formControl.className = 'form-control sucess';
 }
+//Function to check valid email
+function isValidEmail(email)
+{   
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    return re.test(String(email).toLowerCase());  
+}
 //Events listner
 //Creat event listener for submit button
 form.addEventListener('submit',function(e){
@@ -44,7 +50,11 @@ form.addEventListener('submit',function(e){
     //Check if email is empty
     if(email.value === '')
     {
-        showError(email, 'Username is required');
+        showError(email, 'email is required');
+    }
+    else if(!isValidEmail(email.value))
+    {
+          showError(email, "Email is invalid")
     }
     else{
        
@@ -53,7 +63,7 @@ form.addEventListener('submit',function(e){
     //Check if password is empty
     if(password.value === '')
     {
-        showError(password, 'Username is required');
+        showError(password, 'Password is required');
     }
     else{
         
@@ -62,7 +72,7 @@ form.addEventListener('submit',function(e){
     //Check if password2 is empty
     if(password2.value === '')
     {
-        showError(password2, 'Username is required');
+        showError(password2, 'Password2 is required');
     }
     else{
        
